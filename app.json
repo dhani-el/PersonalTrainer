@@ -22,11 +22,10 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -36,6 +35,43 @@
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/BebasNeue.ttf",
+            "./assets/fonts/InterRegular.ttf"
+          ],
+          "android": {
+            "fonts": [
+              {
+                "fontFamily": "Bebas",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/BebasNeue.ttf",
+                    "weight": "normal"
+                  }
+                ]
+              },
+              {
+                "fontFamily": "Inter",
+                "fontDefinitions": [
+                  {
+                    "path": "./assets/fonts/InterRegular.ttf",
+                    "weight": "400"
+                  }
+                ]
+              }
+            ]
+          },
+          "ios": {
+            "fonts": [
+              "./assets/fonts/BebasNeue.ttf",
+              "./assets/fonts/InterRegular.ttf"
+            ]
           }
         }
       ]
