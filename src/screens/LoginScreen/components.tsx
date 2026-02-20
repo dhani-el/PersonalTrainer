@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import { Image, StyleSheet, Text, View } from "react-native";
-const wordMarkLogo = require("../../../assets/logo/wordmarkCrop.png");
+const wordMarkLogo = require("../../../assets/logo/abstract_mark.png");
 
 export function Logo() {
   const [loaded, error] = useFonts({
