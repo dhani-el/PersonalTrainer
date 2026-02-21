@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../../../constants/colors";
-import { Button, Line, LoginAssistance, LoginInput, Logo } from "./components";
+import { Button, Line, LoginInput, Logo } from "../../Utils/general";
+import { LoginAssistance } from "./components";
 
 const screenDimension = Dimensions.get("window");
 const height = screenDimension.height;
