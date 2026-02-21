@@ -1,4 +1,5 @@
 import { Radio } from "@/src/Utils/general";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useFonts } from "expo-font";
 import {
   Dimensions,
@@ -6,8 +7,11 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
+import Colors from "../../../constants/colors";
+
 const wordMarkLogo = require("../../../assets/logo/abstract_markcrop.png");
 
 const screenDimension = Dimensions.get("window");
@@ -32,7 +36,7 @@ export function Logo() {
           source={wordMarkLogo}
         />
       </View>
-      <Text style={{ fontFamily: "Bebas", fontSize: 32, color: "#74ee15" }}>
+      <Text style={{ fontFamily: "Bebas", fontSize: 32, color: Colors.accent }}>
         FORMCHECK
       </Text>
     </View>
@@ -49,19 +53,24 @@ export function LoginInput({
   handleChange: (text: string) => void;
 }) {
   return (
-    <View style={{}}>
-      <Text style={{ color: "#74ee15", fontFamily: "Bebas" }}>{title}</Text>
+    <View style={{ gap: 4 }}>
+      <Text
+        style={{ color: Colors.primaryText, fontFamily: "Bebas", fontSize: 16 }}
+      >
+        {title}
+      </Text>
       <TextInput
         placeholder={placeHolder}
         style={{
-          color: "white",
-          padding: 12,
-          backgroundColor: "#1a1a1a",
+          color: Colors.secondaryText,
+          padding: 16,
+          backgroundColor: Colors.primaryBackGround,
           borderRadius: 8,
-          marginTop: 16,
-          borderColor: "white",
+          borderColor: Colors.accent,
           borderStyle: "solid",
           borderWidth: 1,
+          fontFamily: "Inter",
+          fontWeight: "600",
         }}
       />
     </View>
@@ -70,14 +79,86 @@ export function LoginInput({
 
 export function LoginAssistance() {
   return (
-    <View>
-      <View>
+    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View style={{ flexDirection: "row" }}>
         <Radio color="white" size={24} handleClick={() => {}} />
         <Text style={{ color: "white", fontFamily: "Inter", marginLeft: 8 }}>
           Keep me signed in
         </Text>
       </View>
+      <Text
+        style={{
+          color: Colors.accent,
+          fontFamily: "Inter",
+          textDecorationLine: "underline",
+        }}
+      >
+        Forgot Password?
+      </Text>
     </View>
+  );
+}
+// custom button component
+export function Button({
+  title,
+  handleClick,
+  Icon,
+  iconPosition = "left",
+  variant = "primary",
+}: {
+  title: string;
+  handleClick: () => void;
+  Icon?: React.ComponentProps<typeof Ionicons>["name"];
+  iconPosition?: "left" | "right";
+  variant?: "primary" | "secondary";
+}) {
+  return (
+    <TouchableOpacity onPress={handleClick}>
+      <View
+        style={{
+          padding: 8,
+          backgroundColor:
+            variant === "primary" ? Colors.accent : Colors.primaryBackGround,
+          borderRadius: 8,
+          borderStyle: "solid",
+          borderWidth: variant === "primary" ? 0 : 1,
+          borderColor: Colors.accent,
+        }}
+      >
+        <Text
+          style={{
+            color:
+              variant === "primary" ? Colors.accentText : Colors.secondaryText,
+            fontFamily: "Bebas",
+            fontWeight: "600",
+            fontSize: 24,
+            textAlign: "center",
+            gap: 8,
+            display: "flex",
+            flexDirection: iconPosition === "left" ? "row" : "row-reverse",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {title}
+          {Icon ? (
+            <Ionicons
+              name={Icon}
+              size={24}
+              color={
+                variant === "primary" ? Colors.accentText : Colors.secondaryText
+              }
+            />
+          ) : null}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
+export function Line({ width }: { width: number }) {
+  return (
+    <View style={{ width, height: 1, backgroundColor: Colors.secondaryText }} />
   );
 }
 

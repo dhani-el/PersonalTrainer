@@ -43,7 +43,9 @@
         {
           "fonts": [
             "./assets/fonts/BebasNeue.ttf",
-            "./assets/fonts/InterRegular.ttf"
+            "./assets/fonts/InterRegular.ttf",
+            "./assets/fonts/InterMedium.ttf",
+            "./assets/fonts/InterSemiBold.ttf"
           ],
           "android": {
             "fonts": [
@@ -62,6 +64,14 @@
                   {
                     "path": "./assets/fonts/InterRegular.ttf",
                     "weight": "400"
+                  },
+                  {
+                    "path": "./assets/fonts/InterMedium.ttf",
+                    "weight": "500"
+                  },
+                  {
+                    "path": "./assets/fonts/InterSemiBold.ttf",
+                    "weight": "600"
                   }
                 ]
               }
@@ -70,7 +80,9 @@
           "ios": {
             "fonts": [
               "./assets/fonts/BebasNeue.ttf",
-              "./assets/fonts/InterRegular.ttf"
+              "./assets/fonts/InterRegular.ttf",
+              "./assets/fonts/InterMedium.ttf",
+              "./assets/fonts/InterSemiBold.ttf"
             ]
           }
         }

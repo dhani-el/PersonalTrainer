@@ -2,7 +2,8 @@ import { useFonts } from "expo-font";
 import { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { LoginAssistance, LoginInput, Logo } from "./components";
+import Colors from "../../../constants/colors";
+import { Button, Line, LoginAssistance, LoginInput, Logo } from "./components";
 
 const screenDimension = Dimensions.get("window");
 const height = screenDimension.height;
@@ -29,18 +30,22 @@ export default function LoginScreen() {
     <SafeAreaProvider>
       <SafeAreaView>
         <View style={style.mainView}>
-          <Logo />
-          <Text
-            style={{
-              fontFamily: "Inter",
-              color: "white",
-              marginTop: 16,
-              width: (width * 90) / 100,
-            }}
-          >
-            Sign In to access all-in-one Personal training features
-          </Text>
           <View>
+            <Logo />
+            <Text
+              style={{
+                fontFamily: "Inter",
+                fontWeight: "600",
+                color: Colors.secondaryText,
+                marginTop: 8,
+                width: width,
+                textAlign: "center",
+              }}
+            >
+              Sign In to access all-in-one personal training features
+            </Text>
+          </View>
+          <View style={{ gap: 16 }}>
             <LoginInput
               handleChange={(text) => handleInputChange(text, setEmail)}
               placeHolder={"Enter Your Email Adress"}
@@ -55,6 +60,57 @@ export default function LoginScreen() {
             />
             <LoginAssistance />
           </View>
+          <View style={{ gap: 4 }}>
+            <Button
+              title={"Sign In"}
+              handleClick={() => console.log("Sign In Pressed")}
+              Icon="exit-outline"
+            />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 4,
+              }}
+            >
+              <Line width={width * 0.4} key={1} />
+              <Text
+                style={{
+                  color: Colors.secondaryText,
+                  fontFamily: "Inter",
+                  fontWeight: "600",
+                }}
+              >
+                Or
+              </Text>
+              <Line width={width * 0.45} key={2} />
+            </View>
+            <Button
+              title={"Sign In with Google"}
+              handleClick={() => console.log("Google Sign In Pressed")}
+              Icon="logo-google"
+              iconPosition="right"
+              variant="secondary"
+            />
+          </View>
+          <View
+            style={{ flexDirection: "row", justifyContent: "center", gap: 4 }}
+          >
+            <Text style={{ color: Colors.secondaryText, fontFamily: "Inter" }}>
+              Dont Have An Account?
+            </Text>
+            <Text
+              style={{
+                color: Colors.accent,
+                textDecorationLine: "underline",
+                fontFamily: "Inter",
+                fontWeight: "600",
+              }}
+            >
+              Sign Up
+            </Text>
+          </View>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -65,8 +121,9 @@ const style = StyleSheet.create({
   mainView: {
     width,
     height,
-    padding: 16,
+    padding: 18,
     paddingTop: 64,
-    backgroundColor: "black",
+    backgroundColor: Colors.primaryBackGround,
+    gap: 32,
   },
 });
