@@ -1,4 +1,5 @@
 import { Radio } from "@/src/Utils/general";
+import { Link } from "@react-navigation/native";
 import { Text, View } from "react-native";
 import Colors from "../../../constants/colors";
 
@@ -11,15 +12,17 @@ export function LoginAssistance() {
           Keep me signed in
         </Text>
       </View>
-      <Text
-        style={{
-          color: Colors.accent,
-          fontFamily: "Inter",
-          textDecorationLine: "underline",
-        }}
-      >
-        Forgot Password?
-      </Text>
+      <Link screen="otp" params={{}}>
+        <Text
+          style={{
+            color: Colors.accent,
+            fontFamily: "Inter",
+            textDecorationLine: "underline",
+          }}
+        >
+          Forgot Password?
+        </Text>
+      </Link>
     </View>
   );
 }
