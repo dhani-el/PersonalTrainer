@@ -1,3 +1,4 @@
+import { Link } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
@@ -98,18 +99,20 @@ export default function LoginScreen() {
             style={{ flexDirection: "row", justifyContent: "center", gap: 4 }}
           >
             <Text style={{ color: Colors.secondaryText, fontFamily: "Inter" }}>
-              Dont Have An Account?
+              Dont Have An Account?{""}
             </Text>
-            <Text
-              style={{
-                color: Colors.accent,
-                textDecorationLine: "underline",
-                fontFamily: "Inter",
-                fontWeight: "600",
-              }}
-            >
-              Sign Up
-            </Text>
+            <Link screen="signup" params={{}}>
+              <Text
+                style={{
+                  color: Colors.accent,
+                  textDecorationLine: "underline",
+                  fontFamily: "Inter",
+                  fontWeight: "600",
+                }}
+              >
+                Sign Up
+              </Text>
+            </Link>
           </View>
         </View>
       </SafeAreaView>
