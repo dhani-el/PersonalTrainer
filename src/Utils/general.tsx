@@ -132,14 +132,14 @@ export function Button({
             fontWeight: "600",
             fontSize: 24,
             textAlign: "center",
-            gap: 8,
+            gap: 16,
             display: "flex",
             flexDirection: iconPosition === "left" ? "row" : "row-reverse",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          {title}
+          {`${title}   `}
           {Icon ? (
             <Ionicons
               name={Icon}

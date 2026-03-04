@@ -17,12 +17,12 @@ export default function LoginScreen() {
     Inter: require("../../../assets/fonts/InterRegular.ttf"),
   });
 
+  const [email, setEmail] = useState("");
+  const [passWord, setPassWord] = useState("");
+
   if (!loaded) {
     return <Text>Loading fonts...</Text>;
   }
-
-  const [email, setEmail] = useState("");
-  const [passWord, setPassWord] = useState("");
 
   function handleInputChange(text: string, setter: (text: string) => void) {
     setter(text);
