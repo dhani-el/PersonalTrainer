@@ -87,6 +87,12 @@
             ]
           }
         }
+      ],
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "This app needs camera access to analyze your exercise form."
+        }
       ]
     ],
     "experiments": {
