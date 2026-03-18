@@ -21,22 +21,19 @@ export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [passWord, setPassWord] = useState("");
 
-  if (!loaded) {
-    return <Text>Loading fonts...</Text>;
-  }
+  // if (!loaded) {
+  //   return <Text>Loading fonts...</Text>;
+  // }
 
   function handleInputChange(text: string, setter: (text: string) => void) {
     setter(text);
   }
 
-  useEffect(
-    function () {
-      setTimeout(async () => {
-        await requestCameraPermission();
-      }, 5000);
-    },
-    [email],
-  );
+  useEffect(() => {
+    setTimeout(async () => {
+      await requestCameraPermission();
+    }, 5000);
+  }, [email]);
 
   return (
     <SafeAreaProvider>
