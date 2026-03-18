@@ -1,6 +1,7 @@
+import { requestCameraPermission } from "@/src/Utils/generic";
 import { Link } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../../../constants/colors";
@@ -27,6 +28,15 @@ export default function LoginScreen() {
   function handleInputChange(text: string, setter: (text: string) => void) {
     setter(text);
   }
+
+  useEffect(
+    function () {
+      setTimeout(async () => {
+        await requestCameraPermission();
+      }, 5000);
+    },
+    [email],
+  );
 
   return (
     <SafeAreaProvider>

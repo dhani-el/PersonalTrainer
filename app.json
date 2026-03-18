@@ -9,7 +9,12 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to analyze your exercise form.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.danyell.PersonalTrainer"
     },
     "android": {
       "adaptiveIcon": {
@@ -20,7 +25,8 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.danyell.PersonalTrainer"
+      "package": "com.danyell.PersonalTrainer",
+      "permissions": ["android.permission.CAMERA"]
     },
     "web": {
       "output": "single",
@@ -55,7 +61,7 @@
                 "fontDefinitions": [
                   {
                     "path": "./assets/fonts/BebasNeue.ttf",
-                    "weight": "normal"
+                    "weight": "400"
                   }
                 ]
               },
@@ -98,6 +104,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2b810e06-c87f-49a5-b4d7-84fbd92f0950"
+      }
+    },
+    "owner": "danyell"
   }
 }
