@@ -1,11 +1,20 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FormCheck from "../screens/FormMonitor";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/SignupScreen";
 import OtpScreen from "../screens/Verify";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  core: typeof FormCheck;
+  Login: typeof LoginScreen;
+  signup: typeof SignupScreen;
+  otp: typeof OtpScreen;
+  Home: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
   return (
@@ -14,6 +23,11 @@ export default function RootNavigator() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="core"
+          component={FormCheck}
           options={{ headerShown: false }}
         />
         <Stack.Screen

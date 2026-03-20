@@ -6,9 +6,7 @@ export function PoseCamera() {
   const device = useCameraDevice("front");
   const [isCameraActive, setIsCameraActive] = useState(true);
 
-  if (!device) return null;
-
-  return (
+  return device == null ? null : (
     <View style={style.Container}>
       <Camera style={style.Camera} device={device} isActive={isCameraActive} />
     </View>

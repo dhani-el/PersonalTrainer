@@ -50,7 +50,7 @@ export default function SignupScreen() {
                 >
                   Already have an account?{" "}
                 </Text>
-                <Link screen="Login" params={{}}>
+                <Link screen="" params={{}}>
                   <Text
                     style={{
                       color: Colors.accent,

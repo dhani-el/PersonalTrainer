@@ -1,11 +1,16 @@
 import colors from "@/constants/colors";
 import { height, width } from "@/constants/size";
 import Entypo from "@expo/vector-icons/Entypo";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Text, View } from "react-native";
 import { OtpInput } from "react-native-otp-entry";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import type { RootStackParamList } from "../../navigation/RootNavigator";
 
 export default function OtpScreen() {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <SafeAreaProvider>
       <SafeAreaView>
@@ -77,8 +82,8 @@ export default function OtpScreen() {
               focusStickBlinkingDuration={500}
               onFocus={() => console.log("Focused")}
               onBlur={() => console.log("Blurred")}
-              onTextChange={(text) => console.log(text)}
-              onFilled={(text) => console.log(`OTP is ${text}`)}
+              onTextChange={(text) => console.log(`text changed to ${text}`)}
+              onFilled={() => {}}
               textInputProps={{
                 accessibilityLabel: "One-Time Password",
                 cursorColor: colors.accent,
