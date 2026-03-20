@@ -9,6 +9,7 @@ const width = screenDimension.width;
 
 export default function FormCheck() {
   const { top, bottom } = useSafeAreaInsets();
+
   return (
     <View
       style={{ ...style.container, paddingTop: top, paddingBottom: bottom + 6 }}
