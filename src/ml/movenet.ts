@@ -5,3 +5,5 @@ export async function loadMovenet() {
   );
   return model;
 }
+
+export const MOVENET_MODEL = require("../../assets/models/movenet.tflite");

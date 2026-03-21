@@ -1,32 +1,42 @@
-import { loadMovenet } from "@/src/ml/movenet";
-import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { useState } from "react";
+import { Platform, StyleSheet, View } from "react-native";
+import { useTensorflowModel } from "react-native-fast-tflite";
 import {
   Camera,
   useCameraDevice,
   useFrameProcessor,
 } from "react-native-vision-camera";
 
+import { MOVENET_MODEL } from "@/src/ml/movenet";
+
 export function PoseCamera() {
   const device = useCameraDevice("front");
-  const [isCameraActive, setIsCameraActive] = useState(true);
+  const [isCameraActive] = useState(true);
 
-  const frameProcessor = useFrameProcessor((frame) => {
-    console.log("Frame:", frame.width, frame.height);
-  }, []);
+  const model = useTensorflowModel(MOVENET_MODEL);
 
-  useEffect(() => {
-    async function init() {
-      const model = await loadMovenet();
-      console.log("MoveNet Loaded:", model);
-    }
+  const frameProcessor = useFrameProcessor(
+    (frame) => {
+      "worklet";
 
-    init();
-  }, []);
+      if (model.state !== "loaded") return;
 
-  return device == null ? null : (
+      model.model.runSync([]);
+    },
+    [model],
+  );
+
+  if (Platform.OS === "web") return <View />;
+  if (!device) return <View />;
+
+  return (
     <View style={style.Container}>
-      <Camera style={style.Camera} device={device} isActive={isCameraActive} />
+      <Camera
+        style={style.Camera}
+        device={device}
+        frameProcessor={frameProcessor}
+        isActive={isCameraActive}
+      />
     </View>
   );
 }

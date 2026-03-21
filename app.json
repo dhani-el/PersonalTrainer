@@ -8,6 +8,7 @@
     "scheme": "personaltrainer",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "sdkVersion": "52.0.0",
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -99,7 +100,8 @@
         {
           "cameraPermissionText": "This app needs camera access to analyze your exercise form."
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,
